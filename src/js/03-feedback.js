@@ -1,9 +1,12 @@
+import throttle from 'lodash.throttle';
+
+
 const form = document.querySelector('form');
 const mailInput = document.querySelector('[name = "email"]');
 const messageInput = document.querySelector('[name = "message"]');
 
 
-form.addEventListener('input', onInput);
+form.addEventListener('input', throttle(onInput, 500));
 form.addEventListener('submit', onSubmit);
 
 const data = {};
